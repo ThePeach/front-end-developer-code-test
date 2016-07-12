@@ -20,5 +20,25 @@
       <li><span class="highlight">React</span></li>
     </ul> 
   </div>
+<script>
+  (function ($) {
+    var $lis = $('li');
+
+    /**
+     * Hides an element and then overrides itself with newFoo.
+     *
+     * @param {Element}  el     the element to hide
+     * @param {Function} newFoo the new function to self-replace
+     */
+    var hideElement = function(el, newFoo) {
+      $(el).hide();
+      hideElement = newFoo;
+    };
+
+    $lis.on('click', function() {
+      hideElement(this, function() {});
+    });
+  })(jQuery);
+</script>
 </body>
 </html>
